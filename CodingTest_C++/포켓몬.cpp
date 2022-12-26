@@ -1,15 +1,11 @@
 #include <vector>
-#include <unordered_map>
+#include <unordered_set>
 
 using namespace std;
 
 int solution(vector<int> nums)
 {
-    unordered_map<int, int> hash;
+    unordered_set<int> s(nums.begin(), nums.end());
 
-    for (auto& i : nums) {
-        hash[i] += 1;
-    }
-
-    return min(hash.size(), nums.size() / 2);
+    return min(nums.size() / 2, s.size());
 }
